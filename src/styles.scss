@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Press+Start+2P&display=swap");
+
+:root {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.95);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+  }
+  body {
+    background: rgb(242 230 210);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+a {
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background: rgb(60 55 46);
+  filter: url(#leftLight);
+  font-family: "Orbitron", sans-serif;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* add some filter or turbulence for the wall background? */
+
+#root {
+  width: 100vw;
+}
+
+$windowSize: 400px;
+$frameWidth: 10px;
+
+$windowTotalSize: $windowSize + ($frameWidth * 2);
+
+.App {
+  margin-top: 5vh;
+}
+
+.windows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.info {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.description {
+  padding: 2em 4.5em;
+  max-width: 1200px;
+  @media screen and (max-width: 800px) {
+    padding: 2em;
+    margin: 0 auto;
+  }
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5em;
+  box-shadow: 0 0 0.5em #0002;
+  width: 100%;
+  max-width: $windowSize;
+  margin: auto;
+  padding: $frameWidth;
+  // background: rgb(62 99 107);
+  position: relative;
+  justify-content: center;
+
+  .imageContainer {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+    box-shadow: 0 0 1.5em #0002;
+
+    .date {
+      position: absolute;
+      top: 1px;
+      right: -1px;
+      font-size: 0.5em;
+      font-family: "Press Start 2P", cursive;
+      color: #f9b85b;
+      backdrop-filter: blur(2px);
+      line-height: 16px;
+      padding: 0 3px;
+      border-radius: 0 0 0 4px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    img {
+      border: 1px solid black;
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+
+  .ledge {
+    position: absolute;
+    width: $windowSize + ($frameWidth * 6);
+    border-radius: 4px;
+    // background: rgb(62 99 107);
+    bottom: 0;
+    left: -($frameWidth * 2);
+    height: 24px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.filter {
+  position: fixed;
+  z-index: -1;
+}
+
+.blur {
+  position: absolute;
+  top: $frameWidth;
+  left: $frameWidth;
+  border-radius: 0.5em;
+  z-index: 1;
+  width: $windowSize;
+  height: $windowSize;
+  backdrop-filter: blur(2px);
+  transition: backdrop-filter 0.2s ease-in;
+
+  &:hover {
+    backdrop-filter: blur(0px);
+  }
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 0.8em;
+}
