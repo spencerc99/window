@@ -106,6 +106,8 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
   box-shadow: 0 0 0.5em #0002;
   width: 100%;
   max-width: $windowSize;
+  max-height: $windowSize;
+  aspect-ratio: 1/1;
   margin: auto;
   padding: $frameWidth;
   // background: rgb(62 99 107);
@@ -116,7 +118,6 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
     position: relative;
     width: inherit;
     height: inherit;
-    z-index: 1;
     box-shadow: 0 0 1.5em #0002;
 
     .date {
@@ -180,6 +181,7 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
 footer {
   margin-top: auto;
   padding-top: 100px;
+  padding-bottom: 12px;
   text-align: center;
   font-size: 0.8em;
 }

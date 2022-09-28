@@ -9,10 +9,6 @@ interface WindowStream {
   imgSrc: string;
   color: string;
 }
-
-interface Position {}
-
-const Positions = [{}];
 const docId = "_ObKm8enqO";
 const gridId = "grid-g3XU9U3kb8";
 const CodaApiToken = "7c6d4082-5564-4ba6-81af-ff7600c5e576";
