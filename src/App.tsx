@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import "./styles.scss";
 
 interface WindowStream {
-  id: number;
   name: string;
   date: Date;
   imgSrc: string;
@@ -11,6 +10,7 @@ interface WindowStream {
 }
 const docId = "_ObKm8enqO";
 const gridId = "grid-g3XU9U3kb8";
+// read-only token for this public database. Feel free to query if you'd like and you're poking around.
 const CodaApiToken = "7c6d4082-5564-4ba6-81af-ff7600c5e576";
 
 function App() {
@@ -39,9 +39,8 @@ function App() {
   }, []);
 
   const renderWindowStream = (windowStream: WindowStream) => {
-    const { id, name, imgSrc, date, color } = windowStream;
+    const { name, imgSrc, date, color } = windowStream;
 
-    // TODO: make the 09-09-1231
     const dateDisplay = dayjs(date).format("HH:mm:ss MM/DD/YYYY");
 
     return (
@@ -50,7 +49,6 @@ function App() {
           <img src={imgSrc}></img>
           <div className="date">{dateDisplay}</div>
         </div>
-        {/* <div className="blur"></div> */}
         <div className="ledge" style={{ background: color }}>
           {name}
         </div>
@@ -58,7 +56,7 @@ function App() {
     );
   };
 
-  // TODO: add night mode
+  // TODO: add night mode toggle
   return (
     <div className="App">
       <div className="description">
