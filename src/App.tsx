@@ -66,7 +66,15 @@ function App() {
   return (
     <div className="App">
       <div className="description">
-        <p>welcome to my wall of windows.</p>
+        <h1 className="title">welcome to my wall of windows.</h1>
+        <button
+          className="info"
+          onClick={() => {
+            window.open("https://spencerchang.me", "_blank");
+          }}
+        >
+          i
+        </button>
         <p>
           I wanted a digital space to dedicate to my daily experience of life as
           a memorial to the wonder that you find in every moment of existence.
@@ -76,16 +84,34 @@ function App() {
           mediums could be used to create something that felt more personal and
           human.
         </p>
-        <p>You'll find windows into various parts of my life below.</p>
+        <details>
+          <summary>
+            <b>How does this work?</b>
+          </summary>
+          <p>
+            I use a <a href="https://coda.io">coda doc</a> as my underlying
+            database, which is automatically updated via an{" "}
+            <a href="https://support.apple.com/guide/shortcuts/request-your-first-api-apd58d46713f/ios">
+              iOS shortcut
+            </a>
+            whenever I take a photo related to a window on my phone. This makes
+            it a natural extension on top of my normal behavior, an "in situ"
+            computation augmentation, and requires me to do no extra work to
+            maintain this website's data.
+          </p>
+          <p>
+            I'm very captured by the ability of computation to be a natural
+            extension of natural behavior, given you extra capabilities "for
+            free." The intention of this project was to build a tiny system that
+            will evolve on its own, while having the data in an easily
+            exportable and extensible interface in case I need to make any
+            manual changes.
+          </p>
+          <hr />
+        </details>
+
+        <p>You'll find windows into various slices of my life.</p>
       </div>
-      <button
-        className="info"
-        onClick={() => {
-          window.open("https://spencerchang.me", "_blank");
-        }}
-      >
-        i
-      </button>
       <div className="windows">
         {windowStreams.map((windowStream) => renderWindowStream(windowStream))}
       </div>
@@ -104,7 +130,7 @@ function App() {
             operator="arithmetic"
             k1="2.5"
             k2=".8"
-            k3=".15"
+            k3="0"
             k4="0"
           ></feComposite>
         </filter>

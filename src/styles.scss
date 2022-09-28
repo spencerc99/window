@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Press+Start+2P&family=Inter+Tight:wght@400;600&display=swap");
 
 :root {
   font-size: 16px;
@@ -15,29 +15,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-  }
-  body {
-    background: rgb(242 230 210);
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-a {
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -46,7 +23,19 @@ body {
   min-height: 100vh;
   background: rgb(60 55 46);
   filter: url(#leftLight);
-  font-family: "Orbitron", sans-serif;
+  font-family: "Orbitron";
+}
+
+.title {
+  font-family: "Orbitron";
+}
+
+a {
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
 }
 
 h1 {
@@ -103,6 +92,7 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
 .description {
   padding: 2em 4.5em;
   max-width: 1200px;
+  font-family: "Inter Tight", sans-serif;
   @media screen and (max-width: 800px) {
     padding: 2em;
     margin: 0 auto;
@@ -153,6 +143,7 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
 
   .ledge {
     position: absolute;
+    font-family: "Orbitron";
     width: $windowSize + ($frameWidth * 6);
     border-radius: 4px;
     // background: rgb(62 99 107);
@@ -191,4 +182,19 @@ footer {
   padding-top: 100px;
   text-align: center;
   font-size: 0.8em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+  }
+  body {
+    background: rgb(242 230 210);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
