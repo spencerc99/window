@@ -80,7 +80,11 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
 .windows {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 4em;
+  max-width: 2000px;
+  margin: auto;
+  width: 100%;
+  padding: 0 4em;
 }
 
 .info {
@@ -108,7 +112,7 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
   max-width: $windowSize;
   max-height: $windowSize;
   aspect-ratio: 1/1;
-  margin: auto;
+  margin: auto 0;
   padding: $frameWidth;
   // background: rgb(62 99 107);
   position: relative;
