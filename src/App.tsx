@@ -65,6 +65,10 @@ function App() {
     <div className="App">
       <div className="description">
         <h1 className="title">welcome to my wall of windows</h1>
+        <h3>
+          windows are portals to the latest photos from my phone for slices of
+          my life. I hope you feel some intimacy with how I see the world.
+        </h3>
         <button
           className={showDetailedDescription ? "info toggled" : "info"}
           onClick={() => {
@@ -76,12 +80,19 @@ function App() {
         {showDetailedDescription && (
           <>
             <p>
-              I wanted to dedicate a digital space to the wonder that you find
-              in your daily experience. This project also experiments with
-              intimacy through personal but ephemeral glimpses into someone's
-              life. With the rise of parasocial relationships from social media,
-              I wanted to play with how digital mediums could be used to create
-              something that felt more personal and human.
+              <b>behind the project</b> - I wanted to dedicate a digital space
+              to the wonder that you find in your daily experience and show
+              little vignettes of how I perceive the world as I move through it,
+              what I am drawn towards and naturally find interesting. With the
+              rise of parasocial relationships from social media, I wanted to
+              play with how digital mediums could be used to facilitate a
+              natural intimacy through ephemeral yet personal glimpses into how
+              someone moves through their life.
+            </p>
+            <p>
+              Seeing these, what do you think I would gravitate towards or point
+              out in your daily life environments? What would your windows look
+              out onto? What sorts of objects or views might you find?
             </p>
             <details>
               <summary>
@@ -94,13 +105,13 @@ function App() {
                   iOS shortcut
                 </a>{" "}
                 whenever I take a photo related to a window on my phone. This
-                makes it a natural extension on top of my normal behavior, an
-                "in situ" computation augmentation, and requires me to do no
-                extra work to maintain this website's data.
+                workflow naturally fits into my existing behavior, an "in situ"
+                computation augmentation, and requires me to do no extra work to
+                maintain this website's data.
               </p>
               <p>
                 I'm very captured by the ability of computation to be a natural
-                extension of natural behavior, given you extra capabilities "for
+                extension of regular behavior, given you extra capabilities "for
                 free." The intention of this project was to build a tiny system
                 that will evolve on its own, while having the data in an easily
                 exportable and extensible interface in case I need to make any
@@ -108,7 +119,6 @@ function App() {
               </p>
               <hr />
             </details>
-            <p>You'll find windows into various slices of my life.</p>
           </>
         )}
       </div>
@@ -122,7 +132,7 @@ function App() {
             result="light"
             lighting-color="#bbbbbb"
           >
-            <fePointLight x="-20" y="-40" z="250"></fePointLight>
+            <fePointLight x="20" y="50" z="150"></fePointLight>
           </feDiffuseLighting>
           <feComposite
             in="SourceGraphic"
