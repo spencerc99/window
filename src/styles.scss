@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Press+Start+2P&family=Inter+Tight:wght@400;600&display=swap");
 
+$frameWidth: 10px;
+
 :root {
   font-size: 16px;
   line-height: 24px;
@@ -13,6 +15,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --window-size: 400px;
+  @media screen and (max-width: 800px) {
+    --window-size: 320px;
+  }
 }
 
 body {
@@ -68,13 +75,11 @@ button:focus-visible {
   width: 100vw;
 }
 
-$windowSize: 400px;
-$frameWidth: 10px;
-
-$windowTotalSize: $windowSize + ($frameWidth * 2);
-
 .App {
   margin-top: 5vh;
+  @media screen and (max-width: 800px) {
+    margin-top: 0;
+  }
 }
 
 .windows {
@@ -85,12 +90,20 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
   margin: auto;
   width: 100%;
   padding: 0 4em;
+
+  @media screen and (max-width: 800px) {
+    padding: 0 2em;
+  }
 }
 
 .info {
   position: absolute;
   top: 4px;
   right: 4px;
+
+  &.toggled {
+    box-shadow: inset 1px 2px 5px black;
+  }
 }
 
 .description {
@@ -109,8 +122,8 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
   border-radius: 0.5em;
   box-shadow: 0 0 0.5em #0002;
   width: 100%;
-  max-width: $windowSize;
-  max-height: $windowSize;
+  max-width: var(--window-size);
+  max-height: var(--window-size);
   aspect-ratio: 1/1;
   margin: auto 0;
   padding: $frameWidth;
@@ -149,7 +162,7 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
   .ledge {
     position: absolute;
     font-family: "Orbitron";
-    width: $windowSize + ($frameWidth * 6);
+    width: calc(var(--window-size) + ($frameWidth * 6));
     border-radius: 4px;
     // background: rgb(62 99 107);
     bottom: 0;
@@ -164,22 +177,6 @@ $windowTotalSize: $windowSize + ($frameWidth * 2);
 .filter {
   position: fixed;
   z-index: -1;
-}
-
-.blur {
-  position: absolute;
-  top: $frameWidth;
-  left: $frameWidth;
-  border-radius: 0.5em;
-  z-index: 1;
-  width: $windowSize;
-  height: $windowSize;
-  backdrop-filter: blur(2px);
-  transition: backdrop-filter 0.2s ease-in;
-
-  &:hover {
-    backdrop-filter: blur(0px);
-  }
 }
 
 footer {
