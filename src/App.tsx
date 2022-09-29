@@ -76,13 +76,12 @@ function App() {
         {showDetailedDescription && (
           <>
             <p>
-              I wanted a digital space to dedicate to my daily experience of
-              life as a memorial to the wonder that you find in every moment of
-              existence. This project also experiments with intimacy through
-              very personal but ephemeral glimpses into someone's life. With the
-              rise of parasocial relationships from social media, I wanted to
-              play with how digital mediums could be used to create something
-              that felt more personal and human.
+              I wanted to dedicate a digital space to the wonder that you find
+              in your daily experience. This project also experiments with
+              intimacy through personal but ephemeral glimpses into someone's
+              life. With the rise of parasocial relationships from social media,
+              I wanted to play with how digital mediums could be used to create
+              something that felt more personal and human.
             </p>
             <details>
               <summary>
