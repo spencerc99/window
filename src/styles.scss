@@ -2,6 +2,7 @@
 
 $frameWidth: 10px;
 $colorRetro: #f9b85b;
+$colorBlue: #5998ff;
 
 :root {
   font-size: 16px;
@@ -202,5 +203,8 @@ footer {
   }
   button {
     background-color: #f9f9f9;
+  }
+  .title {
+    color: $colorBlue;
   }
 }
