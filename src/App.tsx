@@ -2,12 +2,23 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import "./styles.scss";
 
+interface RawData {
+  values: WindowStream & Omit<Metadata, "location"> & { metadata: string };
+}
+
 interface WindowStream {
   name: string;
   date: Date;
   imgSrc: string;
   color: string;
+  isWindow: boolean;
 }
+
+interface Metadata {
+  location: string;
+  totalWindows: number;
+}
+
 const docId = "_ObKm8enqO";
 const gridId = "grid-g3XU9U3kb8";
 // read-only token for this public database. Feel free to query if you'd like and you're poking around.
@@ -15,6 +26,7 @@ const CodaApiToken = "7c6d4082-5564-4ba6-81af-ff7600c5e576";
 
 function App() {
   const [windowStreams, setWindowStreams] = useState<WindowStream[]>([]);
+  const [metadata, setMetadata] = useState<Metadata | undefined>(undefined);
 
   async function loadWindows() {
     const resp = await fetch(
@@ -26,13 +38,21 @@ function App() {
       }
     );
     const response = await resp.json();
-    console.log(response);
+    const data: RawData[] = response.items;
+    console.log(data);
     setWindowStreams(
-      response.items.map((item: any) => ({
-        ...item.values,
-        date: new Date(item.values.date),
-      }))
+      data
+        .filter((ele) => ele.values.isWindow)
+        .map((item: any) => ({
+          ...item.values,
+          date: new Date(item.values.date),
+        }))
     );
+
+    const { metadata: location, totalWindows } = data.filter(
+      (ele) => !ele.values.isWindow
+    )[0].values;
+    setMetadata({ location, totalWindows });
   }
   useEffect(() => {
     void loadWindows();
@@ -66,9 +86,17 @@ function App() {
       <div className="description">
         <h1 className="title">welcome to my wall of windows</h1>
         <h3>
-          windows are portals to the latest photos from my phone for slices of
-          my life. I hope you feel some intimacy with how I see the world.
+          windows are portals into recent slices of my life as seen by me and my
+          phone.{" "}
         </h3>
+        {metadata ? (
+          <span className="metadata">
+            Last updated from <b>{metadata.location}</b> with the{" "}
+            <b>{metadata.totalWindows}th</b> image.
+          </span>
+        ) : (
+          ""
+        )}
         <button
           className={showDetailedDescription ? "info toggled" : "info"}
           onClick={() => {
@@ -94,6 +122,12 @@ function App() {
               out in your daily life environments? What would your windows look
               out onto? What sorts of objects or views might you find?
             </p>
+            <p>
+              I hope these windows evoke a sense of intimacy with me and how I
+              see the world. Feel free to{" "}
+              <a href="https://twitter.com/spencerc99">let me know</a> if
+              anything especially strikes you.
+            </p>
             <details>
               <summary>
                 <b>How does this work?</b>
@@ -117,8 +151,8 @@ function App() {
                 exportable and extensible interface in case I need to make any
                 manual changes.
               </p>
-              <hr />
             </details>
+            <hr />
           </>
         )}
       </div>
