@@ -124,7 +124,11 @@ function App() {
             </p>
             <p>
               I hope these windows evoke a sense of intimacy with me and how I
-              see the world. Feel free to{" "}
+              see the world. I wanted these to feel like ephemeral social media
+              stories without all the pressure of notifying people and being
+              perceived. I wanted these to mimic the digital equivalent of my
+              front porch, where you can stop by to see what I'm thinking about,
+              but only if you have the intention to do so. Feel free to{" "}
               <a href="https://twitter.com/spencerc99">let me know</a> if
               anything especially strikes you.
             </p>
