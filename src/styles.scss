@@ -18,7 +18,7 @@ $colorBlue: #5998ff;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --window-size: 400px;
+  --window-size: 320px;
   @media screen and (max-width: 500px) {
     --window-size: 320px;
   }
@@ -84,9 +84,14 @@ button:focus-visible {
 }
 
 .App {
-  margin-top: 4vh;
+  margin-top: 2em;
   @media screen and (max-width: 800px) {
     margin-top: 0;
+  }
+  @media screen and (max-width: 500px) {
+    .description {
+      padding-top: 0;
+    }
   }
 }
 
