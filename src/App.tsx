@@ -47,6 +47,7 @@ function App() {
           ...item.values,
           date: new Date(item.values.date),
         }))
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
     );
 
     const { metadata: location, totalWindows } = data.filter(
