@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 
 interface RawData {
@@ -24,9 +24,39 @@ const gridId = "grid-g3XU9U3kb8";
 // read-only token for this public database. Feel free to query if you'd like and you're poking around.
 const CodaApiToken = "7c6d4082-5564-4ba6-81af-ff7600c5e576";
 
+// adapted from https://ericdcobb.medium.com/scrolling-to-an-anchor-in-react-when-your-elements-are-rendered-asynchronously-8c64f77b5f34
+const scrollToLocation = () => {
+  const scrolledRef = useRef(false);
+  const { hash } = window.location;
+
+  // not very efficient, would be better to set the event listener
+  // in the actual rendering of the window but w/e
+  useEffect(() => {
+    if (hash && !scrolledRef.current) {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (!element) {
+        return;
+      }
+
+      const windowImg = element.querySelector<HTMLImageElement>("img");
+      if (!windowImg) {
+        return;
+      }
+
+      windowImg.addEventListener("load", () => {
+        element.scrollIntoView({ behavior: "smooth" });
+        scrolledRef.current = true;
+      });
+    }
+  });
+};
+
 function App() {
   const [windowStreams, setWindowStreams] = useState<WindowStream[]>([]);
   const [metadata, setMetadata] = useState<Metadata | undefined>(undefined);
+
+  scrollToLocation();
 
   async function loadWindows() {
     const resp = await fetch(
@@ -39,7 +69,6 @@ function App() {
     );
     const response = await resp.json();
     const data: RawData[] = response.items;
-    console.log(data);
     setWindowStreams(
       data
         .filter((ele) => ele.values.isWindow)
@@ -65,13 +94,15 @@ function App() {
     const dateDisplay = dayjs(date).format("HH:mm:ss MM/DD/YYYY");
 
     return (
-      <div className="window" style={{ background: color }}>
-        <div className="imageContainer">
-          <img src={imgSrc}></img>
-          <div className="date">{dateDisplay}</div>
-        </div>
-        <div className="ledge" style={{ background: color }}>
-          {name}
+      <div className="windowWrapper" id={name} key={name}>
+        <div className="window" style={{ background: color }}>
+          <div className="imageContainer">
+            <img src={imgSrc}></img>
+            <div className="date">{dateDisplay}</div>
+          </div>
+          <div className="ledge" style={{ background: color }}>
+            {name}
+          </div>
         </div>
       </div>
     );
@@ -169,7 +200,7 @@ function App() {
           <feDiffuseLighting
             in="SourceGraphic"
             result="light"
-            lighting-color="#bbbbbb"
+            lightingColor="#bbbbbb"
           >
             <fePointLight x="20" y="50" z="150"></fePointLight>
           </feDiffuseLighting>

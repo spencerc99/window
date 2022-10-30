@@ -22,6 +22,16 @@ $colorBlue: #5998ff;
   @media screen and (max-width: 500px) {
     --window-size: 320px;
   }
+
+  @media screen and (max-width: 550px) and (max-height: 550px) {
+    .description {
+      display: none;
+    }
+
+    .windowWrapper {
+      margin-top: 1.5em;
+    }
+  }
 }
 
 body {
