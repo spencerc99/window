@@ -45,7 +45,7 @@ const scrollToLocation = () => {
       }
 
       windowImg.addEventListener("load", () => {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView();
         scrolledRef.current = true;
       });
     }
