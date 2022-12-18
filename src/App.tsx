@@ -193,7 +193,31 @@ function App() {
         )}
       </div>
       <div className="windows">
-        {windowStreams.map((windowStream) => renderWindowStream(windowStream))}
+        {windowStreams
+          .filter((w) => w.name !== "guest")
+          .map((windowStream) => renderWindowStream(windowStream))}
+        {/* CTA to add your own */}
+        <div className="windowWrapper" id="guestWindow">
+          <div className="window">
+            <div className="imageContainer">
+              <div className="windowImg">
+                <a href="https://coda.io/form/guest-window_dL64YUDTJ2e">
+                  {"<your image here>"}
+                </a>
+                <span>
+                  share a slice of your life with us. submissions will gradually
+                  disappear and be replaced over the span of a few days, just
+                  like the rest of the windows.
+                </span>
+              </div>
+              <div className="date">right now or sometime in the past...</div>
+            </div>
+            <div className="ledge">the internet</div>
+          </div>
+          {windowStreams
+            .filter((w) => w.name === "guest")
+            .map((windowStream) => renderWindowStream(windowStream))}
+        </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" className="filter">
         <filter id="leftLight">

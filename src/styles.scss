@@ -56,7 +56,7 @@ body {
 }
 
 a {
-  color: #9e9eff;
+  color: #8484db;
   text-decoration: inherit;
 }
 
@@ -177,7 +177,8 @@ button:focus-visible {
       background: rgba(0, 0, 0, 0.4);
     }
 
-    img {
+    img,
+    .windowImg {
       border: 1px solid black;
       width: inherit;
       height: inherit;
@@ -211,6 +212,40 @@ footer {
   padding-bottom: 12px;
   text-align: center;
   font-size: 0.8em;
+}
+
+#guestWindow {
+  .ledge,
+  .window {
+    background: #6cbc94;
+  }
+
+  .windowImg {
+    background: linear-gradient(
+      221deg,
+      rgba(174, 238, 220, 1) 0%,
+      rgba(148, 187, 233, 1) 66%,
+      rgba(255, 103, 154, 1) 100%
+    );
+    width: 270px;
+    height: 428px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Roboto Slab";
+    text-align: center;
+    padding: 0 25px;
+
+    a {
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 80%;
+    }
+  }
 }
 
 @media (prefers-color-scheme: light) {
