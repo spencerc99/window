@@ -120,6 +120,9 @@ button:focus-visible {
   @media screen and (max-width: 1032px) {
     justify-content: center;
   }
+  @media screen and (max-width: 300px) {
+    padding: 0 0.5em;
+  }
 }
 
 .info {
@@ -189,11 +192,10 @@ button:focus-visible {
   .ledge {
     position: absolute;
     font-family: "Orbitron";
-    width: calc(var(--window-size) + ($frameWidth * 6));
     border-radius: 4px;
-    // background: rgb(62 99 107);
     bottom: 0;
-    left: -($frameWidth * 2);
+    width: 110%;
+    left: -5%;
     height: 24px;
     z-index: 2;
     display: flex;
