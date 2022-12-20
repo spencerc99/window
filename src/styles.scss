@@ -164,10 +164,23 @@ button:focus-visible {
     position: relative;
     width: inherit;
     height: inherit;
-    box-shadow: 0 0 1.5em #0002;
+
+    &:not(.guest)::after {
+      box-shadow: inset 0 0 5em 8px rgba(44, 44, 44, 0.9);
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
 
     .date {
       position: absolute;
+      z-index: 1;
       top: 1px;
       right: -1px;
       font-size: 0.5em;
@@ -182,7 +195,6 @@ button:focus-visible {
 
     img,
     .windowImg {
-      border: 1px solid black;
       width: inherit;
       height: inherit;
       object-fit: cover;
@@ -219,7 +231,12 @@ footer {
 #guestWindow {
   .ledge,
   .window {
-    background: #6cbc94;
+    background: linear-gradient(
+      58deg,
+      rgb(107, 146, 135) 0%,
+      rgb(83, 104, 129) 66%,
+      rgb(145, 59, 88) 100%
+    );
   }
 
   .windowImg {
