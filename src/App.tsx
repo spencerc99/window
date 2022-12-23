@@ -118,11 +118,17 @@ function App() {
   return (
     <div className="App">
       <div className="description">
-        <h1 className="title">welcome to my wall of windows</h1>
-        <h3>
-          windows are portals into recent slices of my life as seen by me and my
-          phone.{" "}
-        </h3>
+        <h1 className="title">welcome to the wall of windows</h1>
+        <div className="headerDescription">
+          <h3>
+            windows are portals into recent slices of my life as seen by me and
+            my phone.
+          </h3>
+          <h3>
+            since the winter solstice, the wall has been open to visitor
+            submissions through the guest window.
+          </h3>
+        </div>
         {metadata ? (
           <span className="metadata">
             Last updated from <b>{metadata.location}</b> with the{" "}
@@ -155,6 +161,18 @@ function App() {
               Seeing these, what do you think I would gravitate towards or point
               out in your daily life environments? What would your windows look
               out onto? What sorts of objects or views might you find?
+            </p>
+            <p>
+              I opened this up to visitors with guest submissions a few months
+              after the initial launch because I wanted others to be able to
+              share windows into their lives. I hope this corner of windows on
+              the internet can provide shelter for spontaneous intimacy and
+              honor these ordinary moments in our lives. Submit your own by
+              finding the guest window below. You can also share the link with
+              others by sharing{" "}
+              <a href="https://spencerchang.me/window/submit">
+                https://spencerchang.me/window/submit
+              </a>
             </p>
             <p>
               I hope these windows evoke a sense of intimacy with me and how I
