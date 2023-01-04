@@ -110,6 +110,8 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 4em;
+  justify-content: space-around;
+  align-items: center;
   max-width: 2000px;
   margin: auto;
   padding: 0 4em;
@@ -206,12 +208,13 @@ button:focus-visible {
     font-family: "Orbitron";
     border-radius: 4px;
     bottom: 0;
-    width: 110%;
+    width: calc(110% - 2em);
     left: -5%;
-    height: 24px;
+    // height: 24px;
     z-index: 2;
     display: flex;
     justify-content: center;
+    padding: 0 1em;
   }
 }
 
