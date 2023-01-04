@@ -110,9 +110,7 @@ function App() {
     );
   };
 
-  const [showDetailedDescription, setShowDescription] = useState(
-    window.innerWidth > 1700
-  );
+  const [showDetailedDescription, setShowDescription] = useState(false);
 
   // TODO: add night mode toggle
   return (
