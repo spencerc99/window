@@ -70,7 +70,6 @@ function App() {
     );
     const response = await resp.json();
     const data: RawData[] = response.items;
-    console.log(data);
     setWindowStreams(
       data
         .filter((ele) => ele.values.isWindow)
@@ -99,7 +98,7 @@ function App() {
       <div className="windowWrapper" id={name} key={name}>
         <div className="window" style={{ background: color }}>
           <div className="imageContainer">
-            <img src={imgSrc}></img>
+            <img width="320" height="320" loading="lazy" src={imgSrc}></img>
             <div className="date">{dateDisplay}</div>
           </div>
           <div className="ledge" style={{ background: color }}>
